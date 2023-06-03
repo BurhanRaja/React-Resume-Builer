@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import ResumeForm from "./pages/ResumeForm";
+import ResumeTemplate from "./components/ResumeTemplate";
+import TestTemplate from "./components/TestTemplate";
+import { ToastContainer } from "react-toastify";
+import ResumeHome from "./pages/ResumeHome";
+import "react-toastify/dist/ReactToastify.css";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+      />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/home" element={<ResumeHome />} />
+              <Route path="/add/resume" element={<ResumeForm />} />
+              <Route path="/template" element={<TestTemplate />} />
+              <Route path="/edit/resume" />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
