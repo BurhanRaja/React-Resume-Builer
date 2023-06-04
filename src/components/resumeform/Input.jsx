@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ value, handleChange, name, label, type }) => {
+const Input = ({ value, handleChange, name, label, type, smallText }) => {
   return (
     <div className="w-[40%]">
       <label for={name} class="block text-sm text-gray-500 ">
@@ -14,6 +14,7 @@ const Input = ({ value, handleChange, name, label, type }) => {
         name={name}
         id={name}
       />
+      <small className="text-blue-500">{smallText}</small>
     </div>
   );
 };

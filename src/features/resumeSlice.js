@@ -1,14 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  profile: {
-    fullname: "",
-    current_designation: "",
-    location: "",
-    phone: "",
-    website: "",
-  },
-  about: "",
   academics: [],
   experiences: [],
   projects: [],
@@ -41,18 +33,18 @@ const initialState = {
 //     description: "",
 //   },
 
+// {
+//    id: "",
+//    name: "",
+//    ratings
+// }
+
 const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
     clearResumeState: () => {
       return initialState;
-    },
-    addProfile: (state, { payload }) => {
-      state.profile = payload;
-    },
-    addAbout: (state, { payload }) => {
-      state.about = payload;
     },
     addAcademics: (state, { payload }) => {
       state.academics.push(payload);
@@ -87,12 +79,14 @@ const resumeSlice = createSlice({
 });
 
 export const {
-  addAbout,
   addAcademics,
   addExperiences,
-  addProfile,
   addProjects,
   addSkills,
+  deleteSkill,
+  deleteProject,
+  deleteExperience,
+  deleteAcademic,
 } = resumeSlice.actions;
 
 export default resumeSlice.reducer;

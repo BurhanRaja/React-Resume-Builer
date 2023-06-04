@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import ResumeHome from "./pages/ResumeHome";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ViewResume from "./pages/ViewResume";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/home" element={<ResumeHome />} />
               <Route path="/add/resume" element={<ResumeForm />} />
+              <Route path="/resume/:id" element={<ViewResume />} />
               <Route path="/template" element={<TestTemplate />} />
               <Route path="/edit/resume" />
             </Route>

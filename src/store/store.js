@@ -1,3 +1,4 @@
+import allResumeSlice from "../features/allResumeSlice";
 import resumeSlice from "../features/resumeSlice";
 import singleUsersSlice from "../features/singleUsersSlice";
 import allUserSlice from "../features/userSlice";
@@ -7,6 +8,7 @@ const reducer = combineReducers({
   resumeBuilt: resumeSlice,
   allUsers: allUserSlice,
   singleUser: singleUsersSlice,
+  allResumes: allResumeSlice,
 });
 
 const store = configureStore({
