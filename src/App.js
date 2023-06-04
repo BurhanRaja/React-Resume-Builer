@@ -11,6 +11,7 @@ import ResumeHome from "./pages/ResumeHome";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ViewResume from "./pages/ViewResume";
+import EditResumeForm from "./pages/EditResumeForm";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
               <Route path="/add/resume" element={<ResumeForm />} />
               <Route path="/resume/:id" element={<ViewResume />} />
               <Route path="/template" element={<TestTemplate />} />
-              <Route path="/edit/resume" />
+              <Route path="/edit/resume/:id" element={<EditResumeForm />} />
             </Route>
           </Route>
         </Routes>

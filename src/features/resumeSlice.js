@@ -59,6 +59,19 @@ const resumeSlice = createSlice({
       state.skills.push(payload);
     },
 
+    editAddAcademics: (state, { payload }) => {
+      state.academics = payload;
+    },
+    editAddExperiences: (state, { payload }) => {
+      state.experiences = payload;
+    },
+    editAddProjects: (state, { payload }) => {
+      state.projects = payload;
+    },
+    editAddSkills: (state, { payload }) => {
+      state.skills = payload;
+    },
+
     deleteAcademic: (state, { payload }) => {
       let aca = state.academics.filter((el) => el.id !== payload);
       state.academics = aca;
@@ -83,10 +96,15 @@ export const {
   addExperiences,
   addProjects,
   addSkills,
+  editAddAcademics,
+  editAddExperiences,
+  editAddProjects,
+  editAddSkills,
   deleteSkill,
   deleteProject,
   deleteExperience,
   deleteAcademic,
+  clearResumeState,
 } = resumeSlice.actions;
 
 export default resumeSlice.reducer;

@@ -14,6 +14,10 @@ import {
   deleteExperience,
   deleteProject,
   deleteSkill,
+  editAddAcademics,
+  editAddExperiences,
+  editAddProjects,
+  editAddSkills,
 } from "../features/resumeSlice";
 import { v4 as uuid } from "uuid";
 import { BsStarFill } from "react-icons/bs";
@@ -25,16 +29,28 @@ import {
 import { useEffect } from "react";
 import { decryptData } from "../utils/crypto";
 import ResumeTemplate from "../components/ResumeTemplate";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const ResumeForm = () => {
+const EditResumeForm = () => {
   const { skills, projects, experiences, academics } = useSelector(
     (state) => state.resumeBuilt
   );
   const { user, isLoading, isSuccess } = useSelector(
     (state) => state.singleUser
   );
+  const { id } = useParams();
+  const [resume, setResume] = useState({});
+
+  const handleUserResume = async () => {
+    let response = await fetch(`/resume/${id}`);
+    response = await response.json();
+    setResume(response);
+  };
+
+  useEffect(() => {
+    handleUserResume();
+  }, []);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,6 +79,26 @@ const ResumeForm = () => {
 
   const [userId, setUserId] = useState("");
 
+  useEffect(() => {
+    if (resume) {
+      dispatch(clearResumeState());
+      dispatch(editAddSkills(resume?.skills));
+      dispatch(editAddAcademics(resume?.academics));
+      dispatch(editAddExperiences(resume?.experiences));
+      dispatch(editAddProjects(resume?.projects));
+      setFull_name(resume?.profile?.name);
+      setEmail(resume?.profile?.email);
+      setPhone(resume?.profile?.phone);
+      setLocation(resume?.profile?.location);
+      setWebsite(resume?.profile?.website);
+      setAbout(resume?.about);
+      setResume_name(resume?.name);
+      setGithubLink(resume?.github);
+      setLinkedinLink(resume?.linkedIn);
+      setCurrent_designation(resume?.profile?.designation);
+    }
+  }, [resume]);
+
   // Set User Email
   useEffect(() => {
     handleSingleUser();
@@ -71,7 +107,6 @@ const ResumeForm = () => {
   useEffect(() => {
     if (!isLoading && isSuccess) {
       setUserId(user?.id);
-      setEmail(user?.email);
     }
   }, [isLoading, isSuccess]);
 
@@ -253,7 +288,7 @@ const ResumeForm = () => {
     }
 
     let data = {
-      id: uuid(),
+      id,
       userId,
       name: resume_name,
       github: githubLink,
@@ -273,8 +308,8 @@ const ResumeForm = () => {
       academics,
     };
 
-    fetch("/resume", {
-      method: "POST",
+    fetch(`/resume/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -297,7 +332,7 @@ const ResumeForm = () => {
   return (
     <>
       <div className="w-[70%] mx-auto mb-8">
-        <h1 className="mb-5 text-4xl font-bold">Create Resume</h1>
+        <h1 className="mb-5 text-4xl font-bold">Edit Resume</h1>
         <Card title="Name of the Resume">
           <Input
             label="Name"
@@ -616,7 +651,7 @@ const ResumeForm = () => {
           onClick={handleSubmitResume}
           className="mt-5 p-3 bg-black text-white text-xl w-[100%]"
         >
-          Create Resume
+          Edit Resume
         </button>
       </div>
       <div className="mt-20">
@@ -641,4 +676,4 @@ const ResumeForm = () => {
   );
 };
 
-export default ResumeForm;
+export default EditResumeForm;

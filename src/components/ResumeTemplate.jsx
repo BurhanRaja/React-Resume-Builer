@@ -109,7 +109,7 @@ const ResumeTemplate = ({
                     <li key={el?.id} class="py-2">
                       <div class="flex justify-between my-1">
                         <strong>{el?.title}</strong>
-                        <p class="flex flex-wrap w-[70%]">
+                        <p class="flex flex-wrap">
                           {el?.technology?.map((el, index) => {
                             return (
                               <span
