@@ -2,7 +2,7 @@ import React from "react";
 
 const Textarea = ({ value, handleChange, name, label, width }) => {
   return (
-    <div className={`${width}`}>
+    <div className={`${width} max-sm:w-[100%]`}>
       <label for={name} class="block text-sm text-gray-500 mb-3">
         {label}
       </label>

@@ -306,7 +306,7 @@ const ResumeForm = () => {
           />
         </Card>
         <Card title="Profile">
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Full Name"
               value={full_name}
@@ -318,7 +318,7 @@ const ResumeForm = () => {
               handleChange={(val) => setCurrent_designation(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Email"
               value={email}
@@ -330,7 +330,7 @@ const ResumeForm = () => {
               handleChange={(val) => setPhone(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Location"
               value={location}
@@ -352,7 +352,7 @@ const ResumeForm = () => {
           />
         </Card>
         <Card title="Academics">
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Title"
               value={aca_title}
@@ -364,7 +364,7 @@ const ResumeForm = () => {
               handleChange={(val) => setAca_year(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Name of Academics (School, College etc.)"
               value={aca_name}
@@ -409,7 +409,7 @@ const ResumeForm = () => {
           </div>
         </Card>
         <Card title="Projects">
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Title"
               value={proj_title}
@@ -421,7 +421,7 @@ const ResumeForm = () => {
               handleChange={(val) => setProj_tenure(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Application URL"
               value={proj_appUrl}
@@ -434,7 +434,7 @@ const ResumeForm = () => {
               handleChange={(val) => setProj_technology(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Code URL"
               value={proj_codeUrl}
@@ -459,7 +459,7 @@ const ResumeForm = () => {
             {projects?.map((el) => {
               return (
                 <div className="p-4 bg-gray-200">
-                  <div className="flex justify-end mb-3">
+                  <div className="flex justify-end mb-3 max-sm:flex-wrap">
                     <button
                       onClick={() => handleDeleteProject(el?.id)}
                       className="text-red-500"
@@ -485,7 +485,7 @@ const ResumeForm = () => {
           </div>
         </Card>
         <Card title="Professional Experiences">
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Designation"
               value={exp_designation}
@@ -497,7 +497,7 @@ const ResumeForm = () => {
               handleChange={(val) => setExp_organization(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Tenure"
               value={exp_tenure}
@@ -509,7 +509,7 @@ const ResumeForm = () => {
               handleChange={(val) => setExp_location(val)}
             />
           </div>
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Textarea
               label="Description"
               width="w-[85%]"
@@ -552,7 +552,7 @@ const ResumeForm = () => {
           </div>
         </Card>
         <Card title="Skills">
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Skill"
               value={skill_name}
@@ -599,7 +599,7 @@ const ResumeForm = () => {
           </div>
         </Card>
         <Card title="Important Links">
-          <div className="flex justify-evenly mt-3">
+          <div className="flex justify-evenly mt-3 max-sm:flex-wrap">
             <Input
               label="Github Link"
               value={githubLink}
@@ -619,7 +619,7 @@ const ResumeForm = () => {
           Create Resume
         </button>
       </div>
-      <div className="mt-20">
+      <div className="mt-20 max-sm:hidden">
         <h2 className="text-3xl font-bold w-[80%] mx-auto">Preview Resume</h2>
         <ResumeTemplate
           githubLink={githubLink}

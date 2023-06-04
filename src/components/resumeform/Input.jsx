@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = ({ value, handleChange, name, label, type, smallText }) => {
   return (
-    <div className="w-[40%]">
+    <div className="w-[40%] max-sm:w-[100%] max-sm:mb-4">
       <label for={name} class="block text-sm text-gray-500 ">
         {label}
       </label>
