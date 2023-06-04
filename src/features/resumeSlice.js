@@ -42,6 +42,7 @@ const initialState = {
 //   },
 
 const resumeSlice = createSlice({
+  name: "resume",
   initialState,
   reducers: {
     clearResumeState: () => {

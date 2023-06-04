@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { v4 as uuid } from "uuid";
 import CryptoJS from "crypto-js";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUsersState, getAllUsers } from "../../features/userSlice";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -16,11 +18,25 @@ const Register = () => {
 
   const [allUsers, setAllUsers] = useState([]);
 
+  const { users, isLoading, isSuccess } = useSelector(
+    (state) => state.allUsers
+  );
+  const dispatch = useDispatch();
+
+  const handleAllUsers = () => {
+    dispatch(clearUsersState());
+    dispatch(getAllUsers());
+  };
+
   useEffect(() => {
-    fetch("/users")
-      .then((res) => res.json())
-      .then((data) => setAllUsers(data));
+    handleAllUsers();
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && isSuccess) {
+      setAllUsers(users);
+    }
+  }, [isLoading, isSuccess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { decryptData, encryptData } from "../../utils/crypto";
+import { clearUsersState, getAllUsers } from "../../features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,11 +14,25 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const { users, isLoading, isSuccess } = useSelector(
+    (state) => state.allUsers
+  );
+  const dispatch = useDispatch();
+
+  const handleAllUsers = () => {
+    dispatch(clearUsersState());
+    dispatch(getAllUsers());
+  };
+
   useEffect(() => {
-    fetch("/users")
-      .then((res) => res.json())
-      .then((data) => setAllUsers(data));
+    handleAllUsers();
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && isSuccess) {
+      setAllUsers(users);
+    }
+  }, [isLoading, isSuccess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
