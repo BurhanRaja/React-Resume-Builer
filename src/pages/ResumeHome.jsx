@@ -38,8 +38,8 @@ const ResumeHome = () => {
     }
   }, [isLoading, isSuccess]);
 
-  const handleResumeDelete = async () => {
-    const response = await fetch(`/resume/${id}`, {
+  const handleResumeDelete = () => {
+    fetch(`/resume/${id}`, {
       method: "DELETE",
     });
     toast.success("Resume Successfully Deleted.");

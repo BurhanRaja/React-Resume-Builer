@@ -5,7 +5,77 @@
       "username": "burhan",
       "email": "burhan@gmail.com",
       "password": "U2FsdGVkX1+7bMrSZmOMbzawCqxzXPUXogghd/wpIxw="
+    },
+    {
+      "id": "fadf65d3-fde2-4b78-bbdb-701035600eb8",
+      "username": "Zuzar",
+      "email": "zuzar@gmail.com",
+      "password": "U2FsdGVkX19/STsuTR6bmR6RSuZ7M9hZ0NYyRELktVw="
     }
   ],
-  "resume": []
+  "resume": [
+    {
+      "id": "880da994-02d4-41e6-b65f-bbf02205ce50",
+      "userId": "16543aab-351c-4533-83c6-074f1dadd981",
+      "name": "Burhan Resume",
+      "github": "wersdf",
+      "linkedIn": "wesdrf",
+      "profile": {
+        "name": "eQVFEWAVEAWSR",
+        "designation": "RAEVREAWV",
+        "email": "burhan@gmail.com",
+        "phone": "RAWEVEW",
+        "location": "AREVBEWRA",
+        "website": "AERVAEWRV"
+      },
+      "about": "ersbresbbe reag reg ergres grae garew ",
+      "skills": [
+        {
+          "id": "55777562-d14e-4f90-a225-5195f062545d",
+          "name": "redfzcx",
+          "rate": 3
+        },
+        {
+          "id": "ffa74aaa-5812-41bd-aa6f-85cc38b0eea1",
+          "name": "wesdrfz",
+          "rate": 3
+        }
+      ],
+      "projects": [
+        {
+          "id": "47516585-8697-4aaa-8f6f-13673d5e506d",
+          "title": " resreger gre ",
+          "tenure": " wagarwg",
+          "appURL": " wargrawegreaw ",
+          "codeURL": "awgrwaegera",
+          "technology": [
+            "aweg ",
+            " waeeg ",
+            " waeegf ",
+            " waeegf"
+          ],
+          "description": "ersgergervdfv ewragewa gewa wea "
+        }
+      ],
+      "experiences": [
+        {
+          "id": "f055223a-40a0-47ff-8241-d8e46c66cf82",
+          "designation": "waergreag",
+          "organization": "regersv",
+          "tenure": "erasv",
+          "location": "dferasvfdz",
+          "description": "arwvesgbfdvscfbdrgnhmjk,hmgnfbdvsc"
+        }
+      ],
+      "academics": [
+        {
+          "id": "b7c712dd-a49c-4c66-812f-7edeb0e5bfd1",
+          "title": " arwgreag rea",
+          "year": "aergrea grea ",
+          "name": "ear greag rea",
+          "description": "g erag rae"
+        }
+      ]
+    }
+  ]
 }
